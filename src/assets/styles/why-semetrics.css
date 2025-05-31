@@ -1,0 +1,52 @@
+.WhySEMetrics {
+  height: auto;
+  padding: 80px 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: #f9fbfd;
+}
+.WhySEMetrics .container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.WhySEMetrics .title {
+  font-size: 36px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 68px;
+}
+.WhySEMetrics .list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.WhySEMetrics .list_item {
+  width: 540px;
+  color: #333;
+}
+.WhySEMetrics .list_item_title {
+  display: flex;
+  align-items: center;
+}
+.WhySEMetrics .svgIcon {
+  width: 35px;
+  height: 35px;
+}
+.WhySEMetrics .list_item_text {
+  font-size: 18px;
+  margin-top: 8px;
+}
+.mT56 {
+  margin-top: 56px;
+}
+.f22 {
+  font-size: 22px;
+}
+.f18 {
+  font-size: 18px;
+}
+.bold {
+  font-weight: bold;
+}
