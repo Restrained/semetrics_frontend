@@ -1,43 +1,39 @@
+<!-- components/UniversityScroller.vue -->
 <template>
-  <div class="home-container">
-    <!-- 顶部栏 -->
-    <Header />
-    <router-view />
-    <!-- 轮播图模块 -->
-    <CarouselBanner />
-    <!-- 为什么选择我们模块 -->
-    <WhySEMetrics />
-
-    <!-- 服务科研用户 -->
-    <ResearchServices />
-    
-    <!-- 高校轮播 -->
-    <UniversityShowcase />
-    
-
-    <!-- 趋势图 -->
-    <!-- <TrendChart :data="trendData" /> -->
-
-    <!-- 底部 -->
-    <Footer />
-    
+  <div class="scroll-wrapper">
+    <div
+      class="scroll-track"
+      :class="{ reverse: direction === 'right' }"
+      :style="{ animationDuration: `${animationDuration}s` }"
+    >
+      <div
+        class="logo-container"
+        v-for="(university, index) in doubledList"
+        :key="index"
+      >
+        <img
+          :src="university.logo"
+          :alt="university.name"
+          class="logo-image"
+        />
+        <p class="logo-text">{{ university.name }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import Footer from '@/components/Footer.vue'
-import CarouselBanner from '@/components/CarouselBanner.vue'
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import Header from '@/components/Header.vue'
-import axios from 'axios'
-import StatsCard from '@/components/StatsCard.vue'
-import ResearchServices from '@/components/ResearchServices.vue'
-import WhySEMetrics from "@/components/WhySEMetrics.vue"
-import TrendChart from '@/components/TrendChart.vue'
-import UniversityShowcase from '@/components/UniversityShowcase.vue'
+import { computed } from 'vue'
 
-const universityBrands = [
+defineProps({
+  direction: {
+    type: String,
+    default: 'left', // 可为 'left' 或 'right'
+  },
+})
+
+// 原始高校列表
+const universities = [
   { name: "复旦大学", logo: "/img/logo/universities/fudan.svg" },
   { name: "上海财经大学", logo: "/img/logo/universities/shufe.svg" },
   { name: "北京大学", logo: "/img/logo/universities/pku.svg" },
@@ -66,36 +62,68 @@ const universityBrands = [
   { name: "吉林大学", logo: "/img/logo/universities/jlu.svg" },
   { name: "重庆大学", logo: "/img/logo/universities/cqu.svg" },
 ];
-
-const stats = ref([])
-const trendData = ref([])
-const router = useRouter()
-
-
-function goToDetail(label) {
-  if (label === '论文') {
-    router.push('/achievement')
-  }
-  // 其他类型后续可扩展
-}
-
-onMounted(async () => {
-  const res1 = await axios.get('/api/stats')
-  stats.value = res1.data
-
-  // 假数据，后面接数据库替换
-  trendData.value = [
-  { year: 2020, clients: 50, partners: 10, revenue: 100 },
-  { year: 2021, clients: 80, partners: 25, revenue: 180 },
-  { year: 2022, clients: 120, partners: 40, revenue: 260 },
-  { year: 2023, clients: 180, partners: 60, revenue: 400 },
-  { year: 2024, clients: 250, partners: 85, revenue: 580 }
-]
-
-
-})
-
-function onSearch(keyword) {
-  console.log('搜索关键词：', keyword)
-}
+const doubledList = computed(() => [...universities, ...universities])
+const animationDuration = 25
 </script>
+
+<style scoped>
+.scroll-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 140px;
+  background-color: #f9fafb;
+}
+
+.scroll-track {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: scrollLeft linear infinite;
+}
+
+.scroll-track.reverse {
+  animation: scrollRight linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 210px;
+  height: 130px;
+  margin-left: 28px;
+  flex-shrink: 0;
+}
+
+.logo-image {
+  width: 210px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.logo-text {
+  margin-top: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  text-align: center;
+  color: #333;
+}
+</style>
