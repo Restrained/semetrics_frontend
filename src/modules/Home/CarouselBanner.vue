@@ -30,17 +30,17 @@ import 'swiper/css/navigation'
 
 const images = [
   {
-    src: '/img/banner1.jpg',
+    src: '/images/banner/banner1.jpg',
     alt: '轮播图 1',
     buttonText: '查看详细数据',
   },
   {
-    src: '/img/banner2.jpg',
+    src: '/images/banner/banner2.jpg',
     alt: '轮播图 2',
     buttonText: '查看详细数据',
   },
   {
-    src: '/img/banner3.jpg',
+    src: '/images/banner/banner3.jpg',
     alt: '轮播图 3',
     buttonText: '查看全文报告',
   },

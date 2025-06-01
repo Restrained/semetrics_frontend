@@ -5,7 +5,7 @@
             <div class="logoPart logoReser cursor">
                 <a href="/" class="logo-link">
                     <!-- <h1 class="logo-title">赛码数据</h1> -->
-                    <img src="/img/logo.png" alt="logo" class="logo-img" />
+                    <img src="/images/logo/logo.png" alt="logo" class="logo-img" />
                 </a>
             </div>
 

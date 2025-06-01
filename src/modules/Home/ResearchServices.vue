@@ -51,17 +51,17 @@ const items = ref([
   {
     title: '数据产品',
     description: '为科研人员提供高质量的学科数据集，支持趋势分析与交叉比对。',
-    image: '/img/Sandalwood-Go-1.png'
+    image: '/images/research-services/data-product.png'
   },
   {
     title: '洞察报告',
     description: '每月更新的领域发展态势，辅助科研决策与项目设计。',
-    image: '/img/data-1.png'
+    image: '/images/research-services/insight-report.png'
   },
   {
     title: '数据平台',
     description: '在线平台支持自助筛选、下载和可视化服务。',
-    image: '/img/Insight-Report-1.png'
+    image: '/images/research-services/data-platform.png'
   }
 ])
 </script>

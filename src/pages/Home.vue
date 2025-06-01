@@ -1,7 +1,6 @@
 <template>
   <div class="home-container">
     <!-- 顶部栏 -->
-    <Header />
     <router-view />
     <!-- 轮播图模块 -->
     <CarouselBanner />
@@ -18,84 +17,13 @@
     <!-- 趋势图 -->
     <!-- <TrendChart :data="trendData" /> -->
 
-    <!-- 底部 -->
-    <Footer />
     
   </div>
 </template>
 
 <script setup>
-import Footer from '@/components/Footer.vue'
-import CarouselBanner from '@/components/CarouselBanner.vue'
-import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-import Header from '@/components/Header.vue'
-import axios from 'axios'
-import StatsCard from '@/components/StatsCard.vue'
-import ResearchServices from '@/components/ResearchServices.vue'
-import WhySEMetrics from "@/components/WhySEMetrics.vue"
-import TrendChart from '@/components/TrendChart.vue'
-import UniversityShowcase from '@/components/UniversityShowcase.vue'
-
-const universityBrands = [
-  { name: "复旦大学", logo: "/img/logo/universities/fudan.svg" },
-  { name: "上海财经大学", logo: "/img/logo/universities/shufe.svg" },
-  { name: "北京大学", logo: "/img/logo/universities/pku.svg" },
-  { name: "对外经济贸易大学", logo: "/img/logo/universities/uibe.svg" },
-  { name: "中国人民大学", logo: "/img/logo/universities/ruc.svg" },
-  { name: "清华大学", logo: "/img/logo/universities/tsinghua.svg" },
-  { name: "华中科技大学", logo: "/img/logo/universities/hust.svg" },
-  { name: "中山大学", logo: "/img/logo/universities/sysu.svg" },
-  { name: "东南大学", logo: "/img/logo/universities/seu.svg" },
-  { name: "南京大学", logo: "/img/logo/universities/nju.svg" },
-  { name: "中央财经大学", logo: "/img/logo/universities/cufe.svg" },
-  { name: "武汉大学", logo: "/img/logo/universities/whu.svg" },
-  { name: "中南财经政法大学", logo: "/img/logo/universities/znufe.svg" },
-  { name: "北京师范大学", logo: "/img/logo/universities/bnu.svg" },
-  { name: "南开大学", logo: "/img/logo/universities/nankai.svg" },
-  { name: "西安交通大学", logo: "/img/logo/universities/xjtu.svg" },
-  { name: "浙江大学", logo: "/img/logo/universities/zju.svg" },
-  { name: "中南大学", logo: "/img/logo/universities/csu.svg" },
-  { name: "山东大学", logo: "/img/logo/universities/sdu.svg" },
-  { name: "西南财经大学", logo: "/img/logo/universities/swufe.svg" },
-  { name: "四川大学", logo: "/img/logo/universities/scu.svg" },
-  { name: "中国科学技术大学", logo: "/img/logo/universities/ustc.svg" },
-  { name: "上海交通大学", logo: "/img/logo/universities/sjtu.svg" },
-  { name: "厦门大学", logo: "/img/logo/universities/xmu.svg" },
-  { name: "华东师范大学", logo: "/img/logo/universities/ecnu.svg" },
-  { name: "吉林大学", logo: "/img/logo/universities/jlu.svg" },
-  { name: "重庆大学", logo: "/img/logo/universities/cqu.svg" },
-];
-
-const stats = ref([])
-const trendData = ref([])
-const router = useRouter()
-
-
-function goToDetail(label) {
-  if (label === '论文') {
-    router.push('/achievement')
-  }
-  // 其他类型后续可扩展
-}
-
-onMounted(async () => {
-  const res1 = await axios.get('/api/stats')
-  stats.value = res1.data
-
-  // 假数据，后面接数据库替换
-  trendData.value = [
-  { year: 2020, clients: 50, partners: 10, revenue: 100 },
-  { year: 2021, clients: 80, partners: 25, revenue: 180 },
-  { year: 2022, clients: 120, partners: 40, revenue: 260 },
-  { year: 2023, clients: 180, partners: 60, revenue: 400 },
-  { year: 2024, clients: 250, partners: 85, revenue: 580 }
-]
-
-
-})
-
-function onSearch(keyword) {
-  console.log('搜索关键词：', keyword)
-}
+import CarouselBanner from '@/modules/Home/CarouselBanner.vue'
+import ResearchServices from '@/modules/Home/ResearchServices.vue'
+import WhySEMetrics from "@/modules/Home/WhySEMetrics.vue"
+import UniversityShowcase from '@/modules/Home/UniversityShowcase.vue'
 </script>
