@@ -82,12 +82,15 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import icon4 from '@/assets/images/icons/register/register_icon4.png'
 import icon5 from '@/assets/images/icons/register/register_icon5.png'
 import icon6 from '@/assets/images/icons/register/register_icon6.png'
 import icon7 from '@/assets/images/icons/register/register_icon7.png'
 
 const userType = ref('institutional')
+const router = useRouter()
+
 const form = reactive({
   company: '',
   name: '',
@@ -105,8 +108,7 @@ const submitForm = () => {
 }
 
 const goToLogin = () => {
-  // 跳转登录页逻辑
-  console.log('跳转登录页')
+  router.push('/login')
 }
 
 const infoItems = [
