@@ -3,9 +3,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MainLayout from '@/layouts/MainLayout.vue'
 import AuthLayout from '@/layouts/AuthLayout.vue'
-import Home from '@/pages/Home.vue'
-import Login from '@/pages/Login.vue'
-import Register from '@/pages/Register.vue'
+
+const Home = () => import('@/pages/Home.vue')
+const Login = () => import('@/pages/Login.vue')
+const Register = () => import('@/pages/Register.vue')
 
 const routes = [
   {
@@ -39,6 +40,7 @@ const routes = [
         path: '',
         name: 'Register',
         component: Register,
+        meta: { title: '用户注册' },
       },
     ],
   },

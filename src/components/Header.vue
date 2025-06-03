@@ -36,12 +36,13 @@
             <!-- 用户操作区域 -->
             <div class="SwaHeader_right">
                 <!-- 申请免费账号按钮 -->
-                <div class="SwaButton cursor mR16 SwaButton_default SwaButton_default_default">
+                <div class="SwaButton cursor mR16 SwaButton_default SwaButton_default_default" @click="goToRegister">
                     申请免费账号
                 </div>
 
+
                 <!-- 登录按钮 -->
-                <div class="login_btn nav-style-login">登录</div>
+                <div class="login_btn nav-style-login" @click="goToLogin">登录</div>
 
 
             </div>
@@ -52,9 +53,17 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
-const isLoggedIn = ref(false)
-const userAvatar = ref('/img/default-avatar.png')
+const router = useRouter()
+
+const goToRegister = () => {
+  router.push('/register')
+}
+
+const goToLogin = () => {
+  router.push('/login')
+}
 
 const showDropdown = ref(false)
 const mobileMenuOpen = ref(false)

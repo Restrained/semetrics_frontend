@@ -1,0 +1,199 @@
+/* 外层容器布局 */
+.signEn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 8rem;
+  background-color: #ffffff;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 左侧信息展示区 */
+.info {
+  flex: 1;
+}
+
+.centerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_box {
+  max-width: 500px;
+}
+
+.title.bold {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.list_item {
+  display: flex;
+  align-items: center;
+}
+
+.list_item_icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.img_reset {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.img_cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.list_item_text {
+  margin-left: 1rem;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* 表单部分 */
+.from {
+  flex: 1;
+}
+
+.from_box {
+  max-width: 420px;
+  padding: 2rem;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+}
+
+.logo img {
+  max-width: 160px;
+  margin-bottom: 1rem;
+}
+
+/* 选项按钮 */
+.choose {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.item {
+  flex: 1;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.select_item {
+  background-color: #e8f0fe;
+  border-color: #409eff;
+  color: #409eff;
+}
+
+/* 输入框 */
+.from_inputBox {
+  margin-top: 1rem;
+}
+
+.swaInput {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s;
+}
+
+.swaInput:focus {
+  border-color: #409eff;
+}
+
+/* 验证码行 */
+.Verification {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.Verification_input {
+  flex: 1;
+}
+
+.codesend_btn {
+  white-space: nowrap;
+  padding: 0.75rem 1rem;
+  background-color: #409eff;
+  color: #fff;
+  border-radius: 6px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+/* 提交按钮 */
+.btn.center {
+  text-align: center;
+  background-color: #409eff;
+  color: white;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn.center:hover {
+  background-color: #357bd8;
+}
+
+/* 登录提示 */
+.text.center {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 14px;
+  color: #666;
+}
+
+.text_btn {
+  color: #409eff;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+/* 工具类 */
+.mT16 {
+  margin-top: 1rem;
+}
+.mL12 {
+  margin-left: 0.75rem;
+}
+.mL20 {
+  margin-left: 1.25rem;
+}
+.bold {
+  font-weight: bold;
+}
+.cursor {
+  cursor: pointer;
+}
+.none {
+  display: none;
+}
